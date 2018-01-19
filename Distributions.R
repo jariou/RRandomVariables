@@ -17,13 +17,13 @@ function (params)
                 {
                     pbeta(x, alpha, beta)
                 },
-                Quantile = function(p)
+                Quantile = function(q)
                 {
-                    qbeta(p, alpha, beta)
+                    qbeta(q, alpha, beta)
                 },
-                Roll = function(n)
+                Roll = function(sampleSize)
                 {
-                    rbeta(n, alpha, beta)
+                    rbeta(sampleSize, alpha, beta)
                 },
                 Mean<-params[1]*params[2]
                 ,
@@ -31,8 +31,6 @@ function (params)
     )
     class(tmp)="RandomVar"
     tmp
-    
-    
 }
 Binomial <-
 function (params) 
@@ -67,16 +65,6 @@ function (params)
     )
     class(tmp)="RandomVar"
     tmp
-    
-    
-}
-circle <-
-function (x,y, radius=1, n=100) 
-{
-  theta = 2*pi*(0:n)/n
-  X = x + radius*cos(theta)
-  Y = y + radius*sin(theta)
-  lines(X,Y)
 }
 Exponential <-
 function (params) 
@@ -96,13 +84,13 @@ function (params)
                 {
                     pexp(x,rate)
                 },
-                Quantile = function(p)
+                Quantile = function(q)
                 {
-                    qexp(p,rate)
+                    qexp(q,rate)
                 },
-                Roll = function(n)
+                Roll = function(sampleSize)
                 {
-                    rexp(n,rate)
+                    rexp(sampleSize,rate)
                 },
                 Mean<-params[1]
                 ,
@@ -131,13 +119,13 @@ function (params)
                 {
                     pgamma(x, params[1], rate)
                 },
-                Quantile = function(p)
+                Quantile = function(q)
                 {
-                    qgamma(p, params[1], rate)
+                    qgamma(q, params[1], rate)
                 },
-                Roll = function(n)
+                Roll = function(sampleSize)
                 {
-                    rgamma(n, params[1], rate)
+                    rgamma(sampleSize, params[1], rate)
                 },
                 Mean<-params[1]*params[2]
                 ,
@@ -145,8 +133,6 @@ function (params)
     )
     class(tmp)="RandomVar"
     tmp
-    
-    
 }
 peak <-
 function (x,y, radius=1, n=100) 
@@ -183,19 +169,18 @@ function (params)
                 {
                     ppois(x,lambda)
                 },
-                Quantile = function(p)
+                Quantile = function(q)
                 {
-                    qpois(p,lambda)
+                    qpois(q,lambda)
                 },
-                Roll = function(n)
+                Roll = function(sampleSize)
                 {
-                    rpois(n,lambda)
+                    rpois(sampleSize,lambda)
                 },
                 Mean<-params[1]
                 ,
                 Variance<- params[1]^2
     )
-    
     class(tmp)="RandomVar"
     tmp
 }
@@ -225,13 +210,13 @@ function (params)
                 {
                     pweibull(x, params[1], rate)
                 },
-                Quantile = function(p)
+                Quantile = function(q)
                 {
-                    qweibull(p, params[1], rate)
+                    qweibull(q, params[1], rate)
                 },
-                Roll = function(n)
+                Roll = function(sampleSize)
                 {
-                    rweibull(n, params[1], rate)
+                    rweibull(sampleSize, params[1], rate)
                 },
                 Mean<-params[1]*params[2]
                 ,
